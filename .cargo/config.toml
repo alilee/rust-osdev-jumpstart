@@ -1,0 +1,11 @@
+[target.x86_64-unknown-none]
+rustflags = ["-Cpanic=abort"]
+runner = "bootimage runner"
+
+[target.aarch64-unknown-none-softfloat]
+rustflags = ["-Cpanic=abort", "-Clink-arg=-Tsrc/_arch/aarch64/linker.ld"]
+runner = "target/kernel_test_runner.sh aarch64"
+
+[target.riscv64gc-unknown-none-elf]
+rustflags = ["-Cpanic=abort", "-Clink-arg=-Tsrc/_arch/riscv64/linker.ld"]
+runner = "target/kernel_test_runner.sh riscv64"
